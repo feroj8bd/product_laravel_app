@@ -17,8 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// route for create
+Route::get('/add-product', [ProductController::class,'create'])->name('product.create');
 
-Route::get('/add-product',[ProductController::class,'create'])->name('product.create');
-Route::get('/all-product',[ProductController::class,'index'])->name('product.index');
+// route for index
+Route::get('/all-product', [ProductController::class,'index'])->name('product.index');
 
-Route::post('/store-product',[ProductController::class,'store'])->name('product.store');
+// route for store
+Route::post('/store-product', [ProductController::class,'store'])->name('product.store');
+
+// route for show
+Route::get('/product/show/{id}', [ProductController::class, 'show'])->name('product.show');
+
+// Display the edit form
+Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+
+// route update the product
+Route::post('/product/update/{id}',[productController::class, 'update'])->name('product.update');
+
+// route delete the product
+Route::get('/product/delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');

@@ -12,12 +12,13 @@
 <body>
 
     <div class="container">
-        <h4 class="text-center mt-5">This is our Product System</h4>
-       <div>
-        <a href="{{ route('product.create') }}" class="btn btn-success">Add Product</a>
-        <a href="{{ route('product.index') }}" class="btn btn-warning">All Product</a>
-        
-       </div>
+        <div class="mt-5">
+            <a href="{{ url('/') }}" class="btn btn-success">Home</a>
+            <a href="{{ route('product.create') }}" class="btn btn-success">Add Product</a>
+            <a href="{{ route('product.index') }}" class="btn btn-warning">All Product</a>
+        </div>
+        <h1 class="text-center mt-3 pt-3">Welcome to our Product  system</h1>
+
     </div>
 </body>
 

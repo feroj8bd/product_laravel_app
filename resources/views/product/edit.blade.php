@@ -20,15 +20,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-            {{-- button link --}}
+        {{-- button link --}}
         <div class="mt-5">
             <a href="{{ url('/') }}" class="btn btn-success">Home</a>
             <a href="{{ route('product.create') }}" class="btn btn-success">Add Product</a>
             <a href="{{ route('product.index') }}" class="btn btn-warning">All Product</a>
         </div>
 
-        <h4 class="text-center mt-3">Add Product Details</h4>
-        <form action="{{ route('product.store') }}" method="POST">
+        <h4 class="text-center mt-3">Update Product Details</h4>
+        <form action="{{ route('product.update', $product->id) }}" method="POST">
             @csrf
 
             {{-- product_name --}}
@@ -37,7 +37,8 @@
                     <label for="product_name">Product Name :</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="product_name" id="product_name" class="form-control">
+                    <input type="text" name="product_name" value="{{ old('product_name', $product->product_name) }}"
+                        id="product_name" class="form-control">
                 </div>
                 <div class="col-md-4">
                     @error('product_name')
@@ -52,7 +53,8 @@
                     <label for="product_cost">Product Item :</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="product_item" id="product_cost" class="form-control">
+                    <input type="text" name="product_item" value="{{ old('product_item', $product->product_item) }}"
+                        id="product_cost" class="form-control">
                 </div>
                 <div class="col-md-4">
                     @error('product_item')
@@ -66,7 +68,8 @@
                     <label for="product_purchase_price">Product Purchase Price:</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="product_purchase_price" id="product_purchase_price"
+                    <input type="text" name="product_purchase_price"
+                        value="{{ old('product_purchase_price', $product->product_purchase_price) }}"id="product_purchase_price"
                         class="form-control">
                 </div>
                 <div class="col-md-4">
@@ -81,7 +84,9 @@
                     <label for="product_selling_price">Product Selling Price :</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="product_selling_price" id="product_selling_price" class="form-control">
+                    <input type="text" name="product_selling_price"
+                        value="{{ old('product_selling_price', $product->product_selling_price) }}"id="product_selling_price"
+                        class="form-control">
                 </div>
                 <div class="col-md-4">
                     @error('product_selling_price')
@@ -95,7 +100,8 @@
                     <label for="expiry_date">Expiry date :</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="date" name="expiry_date" id="expiry_date" class="form-control">
+                    <input type="date" name="expiry_date" value="{{ old('expiry_date', $product->expiry_date) }}"
+                        id="expiry_date" class="form-control">
 
 
                 </div>
@@ -110,7 +116,7 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4">
                     <button type="reset" class="btn btn-warning">Reset</button>
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-info">Update</button>
                 </div>
             </div>
 
